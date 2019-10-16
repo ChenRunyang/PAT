@@ -1,0 +1,71 @@
+#include<iostream>
+#include<string>
+#include<cstring>
+using namespace std;
+
+int main()
+{
+    char src[10001];
+    int det[6];
+    cin.getline(src,10001);
+    for(int i=0;i<strlen(src);i++)
+    {
+        if(src[i]=='P')
+        {
+            det[0]++;
+        }
+        if(src[i]=='A')
+        {
+            det[1]++;
+        }
+        if(src[i]=='T')
+        {
+            det[2]++;
+        }
+        if(src[i]=='e')
+        {
+            det[3]++;
+        }
+        if(src[i]=='s')
+        {
+            det[4]++;
+        }
+        if(src[i]=='t')
+        {
+            det[5]++;
+        }
+    }
+    while(det[0]||det[1]||det[2]||det[3]||det[4]||det[5])
+    {
+        if(det[0]!=0)
+        {
+            cout<<'P';
+            det[0]--;
+        }
+        if(det[1]!=0)
+        {
+            cout<<'A';
+            det[1]--;
+        }
+        if(det[2]!=0)
+        {
+            cout<<'T';
+            det[2]--;
+        }
+        if(det[3]!=0)
+        {
+            cout<<'e';
+            det[3]--;
+        }
+        if(det[4]!=0)
+        {
+            cout<<'s';
+            det[4]--;
+        }
+        if(det[5]!=0)
+        {
+            cout<<'t';
+            det[5]--;
+        }
+    }
+}
