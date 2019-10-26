@@ -14,6 +14,7 @@ int main()
     string det[num];
     int tmp;
     int flag=0;
+    int add_tmp=0;
     string mem[2][13]={{"tret","tam","hel","maa","huh","tou","kes","hei","elo","syy","lok","mer","jou"},
     {"tret","jan","feb","mar","apr","may","jun","jly","aug","sep","oct","nov","dec"}};
     for(int i=0;i<num;i++)
@@ -32,35 +33,31 @@ int main()
         }
         else
         {
-            int k=(src.length()>=5 ? 2 : 1);
-
-                if(k==2)
-                {
                     for(int n=1;n<13;n++)
                     {
                         if(src.find(mem[0][n])!=string::npos)
                         {
-                        det[i]+=(to_string(n));
+                        add_tmp=n*13;
                         auto b1=src.begin();
-                        auto b2=src.begin()+4;
+                        auto b2=src.begin()+3;
                         src.erase(b1,b2);
-                        cout<<src;
                         }
                     }
-                }
                 
                 for(int h=0;h<13;h++)
                 {
                     if(src.find(mem[1][h])!=string::npos)
                         {
-                            //cout<<src;
-                            //cout<<h<<endl;
-                            det[i]+=(to_string(h));
+                        add_tmp += h;
+                        auto b1=src.begin();
+                        auto b2=src.begin()+3;
+                        src.erase(b1,b2);
                         }
                 }
+                det[i]+=(to_string(add_tmp));
         }
         src.clear();
-        cout<<i;
+        add_tmp=0;
     }
     for(int i=0;i<num;i++)
     {
