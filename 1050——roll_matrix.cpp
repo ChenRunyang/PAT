@@ -25,14 +25,27 @@ int main()
             break;
         }
     }
-    sort(src[0],src[num],less<int>());
+    sort(&src[0],&src[num],less<int>());
     int n_flag=0,m_flag=0;
+    int *q=src;
     int *p=det;
-    for(int i=n;i>0;i--)
+    m -=1;
+    while(m>0&&n>0)
     {
-        if(n_flag==0)
+        for(int i=0;i<n;i++)
         {
-            
+            if(n_flag%2 == 0)
+            {
+                 *p=*q;
+                 p +=1;
+                 q +=1;
+            }
+            else
+            {
+                *p=*q
+            }
         }
+        m--;
+        n--;
     }
 }
