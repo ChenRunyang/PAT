@@ -13,9 +13,9 @@ int main()
     {
         cin>>src[i];
     }
-    double tmp_m,n;
-    tmp_m =sqrt(num);
-    int tmp=(int)tmp_m;
+    double tmp1_m,n;
+    tmp1_m =sqrt(num);
+    int tmp=(int)tmp1_m;
     for(n=tmp;n>0;n++)
     {
         m=(double)num/(double)n;
@@ -25,27 +25,78 @@ int main()
             break;
         }
     }
-    sort(&src[0],&src[num],less<int>());
+    sort(&src[0],&src[num],greater<int>());
+    int tmp_m=m,tmp_n=n;
     int n_flag=0,m_flag=0;
     int *q=src;
     int *p=det;
-    m -=1;
-    while(m>0&&n>0)
+    for(int i=0;i<n;i++)
     {
-        for(int i=0;i<n;i++)
+        *p=*q;
+        p++;
+        q++;
+        n_flag++;
+    }
+    p--;
+    q--;
+    m--;
+    n--;
+    for(int i=0;i<m;i++)
+    {
+        q++;
+        p +=tmp_n;
+        *p=*q;
+        m_flag++;
+    }
+    m--;
+    while(n!=0)
+    {
+        
+        if(n_flag==0)
         {
-            if(n_flag%2 == 0)
+            for(int i=0;i<n;i++)
             {
-                 *p=*q;
-                 p +=1;
-                 q +=1;
+            q++;
+            p--;
+            *p=*q;
+            n_flag++;
             }
-            else
+        }
+        else
+        {
+            for(int i=0;i<n;i++)
             {
-                *p=*q
+            q++;
+            p++;
+            *p=*q;
+            n_flag--;
+            }
+        }
+        n--;
+        if(m_flag==0)
+        {
+            for(int i=0;i<m;i++)
+            {
+            q++;
+            p +=tmp_n;
+            *p=*q;
+            m_flag++;
+            }
+        }
+        else
+        {
+            for(int i=0;i<m;i++)
+            {
+            q++;
+            p -=tmp_n;
+            *p=*q;
+            m_flag--;
             }
         }
         m--;
-        n--;
+    }
+    for(int i=0;i<num;i++)
+    {
+        cout<<det[i]<<"  ";
     }
 }
