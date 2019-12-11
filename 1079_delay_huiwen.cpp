@@ -10,7 +10,7 @@ int palindrmic(int srcnum)
     {
         det += num%10;
         num /= 10;
-        det *=10;s
+        det *=10;
     }
     det /=10;
     return det;
