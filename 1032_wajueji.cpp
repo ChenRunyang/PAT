@@ -8,7 +8,11 @@ int main()
 	int tmp,mark;
 	int max=0,max_flag=1;
 	cin>>tim;
-	int sor[tim]={0};
+	int sor[tim];
+	for(auto x:sor)
+	{
+		x=0;
+	}
 	for(int i=0;i<tim;i++)
 	{
 		cin>>tmp>>mark;
